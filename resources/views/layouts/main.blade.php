@@ -14,15 +14,14 @@
   <header>
     <div class="header__title">
       <h1>
-        CodingExperience
+        <a href="/">CodingExperience</a>
       </h1>
     </div>
     <div class="links">
       <ul class="ul__welcome">
-        <li class="li__welcome"><a href="/">HOME</a></li>
-        <li class="li__welcome"><a href="usuarios/login">LOGIN</a></li>
-        <li class="li__welcome"><a href="usuarios/create">INSCREVA-SE</a></li>
-        <li class="li__welcome"><a href="usuarios/cadastrados">INSCRITOS</a></li>
+        <li class="li__welcome"><a href="{{route('usuario.login')}}">LOGIN</a></li>
+        <li class="li__welcome"><a href="{{route('usuario.create')}}">INSCREVA-SE</a></li>
+        <li class="li__welcome"><a href="{{route('usuario.cadastrados')}}">INSCRITOS</a></li>
       </ul>  
     </div>
   </header>
