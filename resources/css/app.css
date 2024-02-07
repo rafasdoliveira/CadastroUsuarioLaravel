@@ -1,0 +1,117 @@
+/* Global */
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    background-image: url("/images/bg-intro-desktop.png");
+    background-color: hsl(0, 100%, 74%) ;
+    font-size: 14px; text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: hsl(249, 10%, 26%);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1000;
+}
+
+.header__title {
+    margin-left: 2rem;
+}
+
+.links {
+    margin-left: 45rem;
+}
+
+.ul__welcome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.li__welcome{
+    margin: 5px;
+}
+
+
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 1040px;
+}
+
+input {
+    width: 320px;
+    height: 45px;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+}
+
+.input-text {
+    padding: 0px 100px 0px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    outline: none;
+    position: relative;
+    border: 1px solid #ccc;
+    color: hsl(249, 10%, 26%);
+    font-weight: bold;
+}
+
+.input-text:focus {
+    border-color: hsl(249, 10%, 26%);
+}
+
+.input-button {
+    width: 435px;
+    border: 1px solid #ccc;
+    background-color: hsl(154, 59%, 51%);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}
