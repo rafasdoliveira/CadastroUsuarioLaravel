@@ -155,8 +155,10 @@ footer {
     margin-right: 10px;
 }
 
-
-
+.login {
+    display: flex;
+    flex-direction: column;
+}
 
 
 

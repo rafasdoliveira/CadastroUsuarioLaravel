@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Frontend Mentor | Intro component with sign up form')
+@section('title', 'Cadastrados')
 
 @section('content')
 <div class="usuarios_cadastrados">

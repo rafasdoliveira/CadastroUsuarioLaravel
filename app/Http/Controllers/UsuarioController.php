@@ -40,4 +40,8 @@ class UsuarioController extends Controller
 
         return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
     }
+
+    public function login(){
+        return view('usuarios.login');
+    }
 }

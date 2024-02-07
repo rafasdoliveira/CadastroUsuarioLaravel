@@ -1,32 +1,28 @@
 @extends('layouts.main')
-<link rel="stylesheet" href="/css/welcome.css">
-@section('title', 'Frontend Mentor | Intro component with sign up form')
+@section('title', 'Cadastro')
 
 @section('content')
 <div class="learn-code">
     <h2 class="learn__h2">
-      Learn to code by<br>watching others
+      Aprenda a <strong>Programar</strong><br>com lives
     </h2>
     <p class="learn__p">
-      See how experienced developers solve problems in real-time.<br>Watching scripted tutorials is great, but understanding how developers think is invaluable. 
+    Veja como desenvolvedores experientes resolvem problemas em tempo real.<br>Assistir tutoriais com script é ótimo, mas entender como os desenvolvedores pensam é inestimável.
     </p>
   </div>
   <div class="form-container">
     <div class="cta__container">
-      Try it free 7 days then $20/mo. thereafter
+      Teste grátis por 7 dias, após isso R$20/mês.
     </div>
   <form action="/usuarios" method="POST" class="form">
     @csrf
     <div class="input__container">
-      <input class="input-text" type="text" name="primeiroNome" id="primeiroNome" placeholder="First Name">
-      <input class="input-text" type="text" name="ultimoNome" id="ultimoNome" placeholder="Last Name">
-      <input class="input-text" type="email" name="email" id="email" placeholder="E-mail Address">
-      <input class="input-text" type="password" name="senha" id="senha" placeholder="Password">
-      <input class="input-button" type="submit" value="Claim your free trial ">    
+      <input class="input-text" type="text" name="primeiroNome" id="primeiroNome" placeholder="Nome">
+      <input class="input-text" type="text" name="ultimoNome" id="ultimoNome" placeholder="Sobrenome">
+      <input class="input-text" type="email" name="email" id="email" placeholder="E-mail">
+      <input class="input-text" type="password" name="senha" id="senha" placeholder="Senha">
+      <input class="input-button" type="submit" value="Solicitar teste gratuito">    
     </div>
-    <p>
-      By clicking the button, you are agreeing to our Terms and Services
-    </p>
   </form>    
 </div>
 @endsection    
