@@ -1,5 +1,8 @@
 @extends('layouts.main')
-
+@section('style')
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/welcome.css">
+@endsection
 @section('title', 'Cadastrados')
 
 @section('content')
