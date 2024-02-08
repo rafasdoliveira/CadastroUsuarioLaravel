@@ -2,25 +2,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class UsuarioController extends Controller
 {
-    public function index() {
+    public function index() { //Utilize Try/catch
         return view('welcome');
     }
 
-    public function createUser() {
+    public function createUser() { //Utilize Try/catch
         return view('usuarios.create');
     }
 
-    public function cadastrados(){
+    public function cadastrados(){ //Utilize Try/catch
         $usuarios = Usuario::all();
         return view('usuarios.cadastrados', ['usuarios' => $usuarios]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) {  //Colocar validação em uma Request!!!!!! - Utilize Try/catch
+
+        throw new Exception("ToDo: Colocar validação em uma Request!!!!!!");
+        throw new Exception("ToDo: Utilize Try/catch");
+
         //Validação
         $regras = [
             'primeiroNome' => 'required|string|max:255',
@@ -55,6 +60,7 @@ class UsuarioController extends Controller
         $usuario -> senha = $request -> senha;
         $usuario -> save();
 
+
         // Recupera todos os usuários cadastrados
         $usuariosCadastrados = Usuario::all();
 
@@ -63,10 +69,12 @@ class UsuarioController extends Controller
             return "Primeiro Nome: {$usuario->primeiroNome}";
         });
 
-        return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
+        //Optar por usar a helper route nos redirecionamentos
+        //return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
+        return redirect()->route('usuario.cadastrados')->with('dados formatados', $dadosFormatados->toArray());
     }
 
-    public function login(){
+    public function login(){ //Utilize Try/catch
         return view('usuarios.login');
     }
 }
