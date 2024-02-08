@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('style')
 <link rel="stylesheet" href="{{ asset('/css/global.css')}}">
-<link rel="stylesheet" href="{{ asset('/css/welcome.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/cadastrados.css')}}">
 @endsection
 @section('title', 'Cadastrados')
 
@@ -10,13 +10,58 @@
     <div class="usuarios__title">
       <h2>Usuários Cadastrados</h2>
     </div>
-      <div class="labels">
-        <span class="span">Primeiro Nome:</span>
-        <span class="span">Último Nome:</span>
-        <span class="span">E-mail:</span>
-        <span class="span">Senha:</span>
-      </div>
-      <div class="foreach">
+    <div class="dadosCadastrados">
+        <div class="nome">
+            <div class="label">
+                <label for="" class="label">Nome</label>
+            </div>
+            <div class="nomes">
+                @foreach($usuarios as $usuario)
+                <span>{{ $usuario -> primeiroNome}}</span>
+                @endforeach
+            </div>
+        </div>
+        <div class="sobrenome">
+            <div class="label">
+                <label for="" class="label">Sobrenome</label>
+            </div>
+            <div class="nomes">
+                @foreach($usuarios as $usuario)
+                <span>{{ $usuario -> ultimoNome}}</span>
+                @endforeach
+            </div>
+        </div>
+        <div class="sobrenome">
+            <div class="label">
+                <label for="" class="label">E-mail</label>
+            </div>
+            <div class="nomes">
+                @foreach($usuarios as $usuario)
+                <span>{{ $usuario -> email}}</span>
+                @endforeach
+            </div>
+        </div>
+        <div class="sobrenome">
+            <div class="label">
+                <label for="" class="label">Senha</label>
+            </div>
+            <div class="nomes">
+                @foreach($usuarios as $usuario)
+                <span>{{ $usuario -> senha  }}</span>
+                @endforeach
+            </div>
+        </div>
+        {{-- <div class="sobrenome">
+            <label for="" class="label">Sobrenome</label>
+        </div>
+        <div class="email">
+            <label for="" class="label">E-mail</label>
+        </div>
+        <div class="senha">
+            <label for="" class="label">Senha</label>
+        </div>
+    </div> --}}
+{{--
           @foreach($usuarios as $usuario)
           <div class="lista">
             <div class="naoconsigoinventarnome">
@@ -25,10 +70,9 @@
             <div class="naoconsigoinventarnome">
               <span>{{ $usuario -> ultimoNome}}</span>
             </div>
-          </div>
 
-          <!-- <span class="lista">{{ $usuario -> ultimoNome}}</span> -->
-          @endforeach
+
+          @endforeach --}}
       </div>
   </div>
 </div>

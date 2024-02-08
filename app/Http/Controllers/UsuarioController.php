@@ -63,7 +63,6 @@ class UsuarioController extends Controller
         }
 
     }
-
     public function login(){ //Utilize Try/catch
         return view('usuarios.login');
     }
