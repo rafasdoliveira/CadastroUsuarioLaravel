@@ -3,7 +3,7 @@
 
 {{-- Use a helper  asset em todas as referencias de css, js, imagens, fonts, etc--}}
 <link rel="stylesheet" href="{{ asset('/css/global.css') }}">
-<link rel="stylesheet" href="/css/welcome.css">
+<link rel="stylesheet" href="{{ asset('/css/welcome.css') }}">
 @endsection
 
 @section('title', 'Frontend Mentor | Intro component with sign up form')

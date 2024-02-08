@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('style')
-<link rel="stylesheet" href="/css/global.css">
-<link rel="stylesheet" href="/css/welcome.css">
+<link rel="stylesheet" href="{{ asset('/css/global.css')}}">
+<link rel="stylesheet" href="{{ asset('/css/welcome.css')}}">
 @endsection
 @section('title', 'Cadastrados')
 
@@ -29,8 +29,8 @@
 
           <!-- <span class="lista">{{ $usuario -> ultimoNome}}</span> -->
           @endforeach
-      </div>        
+      </div>
   </div>
 </div>
-@endsection    
-  
+@endsection
+
