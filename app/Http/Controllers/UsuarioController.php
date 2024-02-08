@@ -71,7 +71,7 @@ class UsuarioController extends Controller
 
         //Optar por usar a helper route nos redirecionamentos
         //return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
-        return redirect()->route('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
+        return redirect()->route('usuario.cadastrados')->with('dados formatados', $dadosFormatados->toArray());
     }
 
     public function login(){ //Utilize Try/catch
