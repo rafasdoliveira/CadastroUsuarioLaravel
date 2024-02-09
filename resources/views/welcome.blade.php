@@ -12,7 +12,6 @@
 <div class="welcome">
     <h2 class="learn__h2">
       Bem Vindo ao CodingExperience!
-      <p>Validação!</p>
     </h2>
     <p>Lugar onde você vai aprender com pessoas que já estão no mercado!</p>
 </div>

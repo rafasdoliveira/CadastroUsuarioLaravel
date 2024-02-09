@@ -28,6 +28,7 @@
       <div class="input__container">
         <input class="input-text" type="text" name="primeiroNome" id="primeiroNome" placeholder="Nome">
         <input class="input-text" type="text" name="ultimoNome" id="ultimoNome" placeholder="Sobrenome">
+        <input type="file" name="image" id="image">
         <input class="input-text" type="email" name="email" id="email" placeholder="E-mail">
         <input class="input-text" type="password" name="senha" id="senha" placeholder="Senha">
         <input class="input-button" type="submit" value="Solicitar teste gratuito">
