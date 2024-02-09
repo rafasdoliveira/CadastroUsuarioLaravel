@@ -28,7 +28,7 @@
     <body>
         @yield('content')
         <script>
-            @if (@session('msg'))
+            @ifSQLSTATE[42S02]: Base table or view not found: 1146 Table 'cadastrousuario.sessions' doesn't exist(@session('msg'))
                 alert('Cadastro realizado com sucesso!\nRealize o login!')
             @endif
         </script>

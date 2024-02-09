@@ -51,28 +51,6 @@
                 @endforeach
             </div>
         </div>
-        {{-- <div class="sobrenome">
-            <label for="" class="label">Sobrenome</label>
-        </div>
-        <div class="email">
-            <label for="" class="label">E-mail</label>
-        </div>
-        <div class="senha">
-            <label for="" class="label">Senha</label>
-        </div>
-    </div> --}}
-{{--
-          @foreach($usuarios as $usuario)
-          <div class="lista">
-            <div class="naoconsigoinventarnome">
-              <span>{{ $usuario -> primeiroNome}}</span>
-            </div>
-            <div class="naoconsigoinventarnome">
-              <span>{{ $usuario -> ultimoNome}}</span>
-            </div>
-
-
-          @endforeach --}}
       </div>
   </div>
 </div>

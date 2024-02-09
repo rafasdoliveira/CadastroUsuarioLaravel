@@ -45,6 +45,10 @@ class UsuarioController extends Controller
             $usuario -> senha = $request -> senha;
             $usuario -> save();
 
+            // Imagem
+
+
+
             //Optar por usar a helper route nos redirecionamentos
             //return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
             return redirect()->route('usuario.login')->with('msg',' ');
