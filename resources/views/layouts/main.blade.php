@@ -29,7 +29,7 @@
         @yield('content')
         <script>
             @if(session('msg'))
-                alert('Cadastro realizado com sucesso!\nRealize o login!')
+                alert('')
             @endif
         </script>
         <footer>

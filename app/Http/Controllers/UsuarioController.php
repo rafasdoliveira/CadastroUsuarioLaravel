@@ -63,7 +63,7 @@ class UsuarioController extends Controller
             $usuario -> save();
             //Optar por usar a helper route nos redirecionamentos
             //return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
-            return redirect()->route('usuario.login')->with('msg','');
+            return redirect()->route('usuario.login')->with('msg','Usuário CADASTRADO com sucesso!');
         } catch (\Throwable $e) {
             return response()-> view('errors.500', ['message' => $e -> getMessage()],500);
         }
@@ -72,9 +72,21 @@ class UsuarioController extends Controller
     public function destroy($id) {
 
         Usuario::FindorFail($id)->delete();
-        return redirect()->route('welcome')->with('msg','Usuário exlcuído');
+        return redirect()->route('welcome')->with('msg','Usuário EXCLUÍDO com sucesso!');
     }
 
+    public function edit($id) {
 
+        $usuario = Usuario::FindorFail($id);
+        return view('usuarios.edit', ['usuario' => $usuario]);
+    }
+
+    public function update(UsuarioStoreRequest $request) {
+
+        Usuario::FindorFail($request->id)->update($request->all());
+
+        return redirect()->route('welcome')->with('msg','Usuário EDITADO com sucesso!');
+
+    }
 }
 

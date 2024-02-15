@@ -53,7 +53,7 @@
         </div>
         <div class="botoes">
             @foreach ($usuarios as $usuario)
-                <a href="#">Editar</a>
+                <a href="/usuarios/edit/{{ $usuario->id}}">Editar</a>
                 <form action="/usuarios/{{$usuario->id}}" method="POST">
                     @csrf
                     @method('DELETE')

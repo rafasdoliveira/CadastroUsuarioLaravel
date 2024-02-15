@@ -9,4 +9,6 @@ Route::get('usuarios/cadastrados', [UsuarioController::class, 'cadastrados'])->n
 Route::get('/usuarios/login', [UsuarioController::class, 'login'])->name('usuario.login');
 Route::post('/usuarios', [UsuarioController::class, 'store'])->name('usuario.store');; //Você tem que nomear a sua rota store também
 Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy']);
+Route::get('/usuarios/edit/{id}', [UsuarioController::class, 'edit']);
+Route::put('usuarios/update/{id}', [UsuarioController::class, 'update']);
 
