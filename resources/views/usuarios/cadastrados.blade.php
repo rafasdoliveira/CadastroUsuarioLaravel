@@ -51,6 +51,16 @@
                 @endforeach
             </div>
         </div>
+        <div class="botoes">
+            @foreach ($usuarios as $usuario)
+                <a href="#">Editar</a>
+                <form action="/usuarios/{{$usuario->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Excluir</button>
+                </form>
+            @endforeach
+        </div>
       </div>
   </div>
 </div>

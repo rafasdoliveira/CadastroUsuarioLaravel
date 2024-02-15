@@ -58,3 +58,8 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+}

@@ -24,13 +24,20 @@ class UsuarioController extends Controller
         }
     }
 
-
     public function cadastrados(){
         try {
             $usuarios = Usuario::all();
             return view('usuarios.cadastrados', ['usuarios' => $usuarios]);
         } catch (\Throwable $e) {
             return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
+        }
+    }
+
+    public function login(){
+        try {
+            return view('usuarios.login');
+        } catch (\Throwable $e) {
+            return response() -> view('error', ['message' => $e -> getMessage()],500);
         }
     }
 
@@ -61,12 +68,13 @@ class UsuarioController extends Controller
             return response()-> view('errors.500', ['message' => $e -> getMessage()],500);
         }
     }
-    public function login(){
-        try {
-            return view('usuarios.login');
-        } catch (\Throwable $e) {
-            return response() -> view('error', ['message' => $e -> getMessage()],500);
-        }
+
+    public function destroy($id) {
+
+        Usuario::FindorFail($id)->delete();
+        return redirect()->route('welcome')->with('msg','Usuário exlcuído');
     }
+
+
 }
 
