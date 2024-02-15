@@ -53,7 +53,10 @@
         </div>
         <div class="botoes">
             @foreach ($usuarios as $usuario)
-                <a href="/usuarios/edit/{{ $usuario->id}}">Editar</a>
+
+                <a href="{{ route("usuario.edit",["id"=>$usuario->id]) }}">Editar</a>
+
+                {{-- Usar a Helper route, conforme acima --}}
                 <form action="/usuarios/{{$usuario->id}}" method="POST">
                     @csrf
                     @method('DELETE')
