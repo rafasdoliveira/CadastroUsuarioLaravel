@@ -83,7 +83,17 @@ class UsuarioController extends Controller
 
     public function update(UsuarioStoreRequest $request) {
 
-        Usuario::FindorFail($request->id)->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('images/usuariosPerfil'), $imageName);
+            $data['image'] = $imageName;
+        }
+
+        Usuario::FindorFail($request->id)->update($data);
 
         return redirect()->route('welcome')->with('msg','Usuário EDITADO com sucesso!');
 
