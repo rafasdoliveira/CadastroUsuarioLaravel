@@ -11,7 +11,7 @@ class UsuarioController extends Controller
             return view('welcome');
         }
         catch(\Throwable $e) {
-            return response() -> view('error', ['error_message' => $e -> getMessage(), 500 ]);
+            return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
         }
     }
 
@@ -20,7 +20,7 @@ class UsuarioController extends Controller
             return view('usuarios.create');
         }
         catch(\Throwable $e) {
-            return response() -> view('error', ['error_message' => $e -> getMessage(), 500 ]);
+            return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
         }
     }
 
@@ -30,7 +30,7 @@ class UsuarioController extends Controller
             $usuarios = Usuario::all();
             return view('usuarios.cadastrados', ['usuarios' => $usuarios]);
         } catch (\Throwable $e) {
-            return response() -> view('error', ['error_message' => $e -> getMessage(), 500 ]);
+            return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
         }
     }
 
@@ -43,24 +43,29 @@ class UsuarioController extends Controller
             $usuario -> ultimoNome = $request -> ultimoNome;
             $usuario -> email = $request -> email;
             $usuario -> senha = $request -> senha;
-            $usuario -> save();
 
             // Imagem
 
-
-
+            if ($request->hasFile('image') && $request->file('image')->isValid()) {
+                $requestImage = $request->image;
+                $extension = $requestImage->extension();
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+                $requestImage->move(public_path('images/usuariosPerfil'), $imageName);
+                $usuario->image = $imageName;
+            }
+            $usuario -> save();
             //Optar por usar a helper route nos redirecionamentos
             //return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
-            return redirect()->route('usuario.login')->with('msg',' ');
+            return redirect()->route('usuario.login')->with('msg','');
         } catch (\Throwable $e) {
-            return response() -> view('error', ['error_message' => $e -> getMessage()],500);
+            return response()-> view('errors.500', ['message' => $e -> getMessage()],500);
         }
     }
     public function login(){
         try {
             return view('usuarios.login');
         } catch (\Throwable $e) {
-            return response() -> view('error', ['error_message' => $e -> getMessage()],500);
+            return response() -> view('error', ['message' => $e -> getMessage()],500);
         }
     }
 }

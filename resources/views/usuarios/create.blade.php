@@ -21,9 +21,8 @@
       </div>
 
       {{-- Use a helper route para referenciar os actions e hrefs do seu projeto --}}
-      <form action="{{ route('usuario.store') }}" method="POST" class="form">
+      <form action="{{ route('usuario.store') }}" method="POST" class="form" enctype="multipart/form-data">
       {{-- <form action="/usuarios" method="POST" class="form"> --}}
-
       @csrf
       <div class="input__container">
         <input class="input-text" type="text" name="primeiroNome" id="primeiroNome" placeholder="Nome">
