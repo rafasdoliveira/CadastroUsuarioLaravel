@@ -10,4 +10,6 @@ class Usuario extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'usuarios';
+
 }

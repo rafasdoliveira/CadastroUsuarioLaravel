@@ -1,65 +1,91 @@
-/* Pàgina Cadastrados */
-
-.usuarios_cadastrados {
+html, body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    background-image: url("/images/bg-intro-desktop.png");
+    background-color: hsl(0, 100%, 74%) ;
+    font-size: 14px; text-align: center;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: hsl(249, 10%, 26%);
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Header */
+
+header {
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 1207px;
-    height: 300px;
-}
-
-.usuarios__title {
-    font-size: 20px;
-    font-weight: 400;
     width: 100%;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1000;
 }
 
-.dadosCadastrados {
+.header__title {
+    margin-left: 2rem;
+}
+
+.links {
+    margin-left: 45rem;
+}
+
+.ul__welcome {
     display: flex;
-    width: 100%;
-    height: 250px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-.nome {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+.li__welcome{
+    margin: 5px;
 }
 
-.nomes {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 300px;
-    margin-top: 5px;
-}
+/* Main */
 
-.sobrenome {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-.email {
-    display: flex;
-    width: 300px;
-}
-
-.senha {
-    display: flex;
-    width: 300px;
-}
-
-.label {
-    display: flex;
-    width: 300px;
-    height: 1.5rem;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.botoes {
+.container {
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
+    width: 800px;
+    height: 400px;
 }
+
+.search {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 800px;
+    height: 70px;
+    margin-top: 10px;
+}
+
+.search__input-text {
+    border: 1px solid red;
+    display: flex;
+}
+
+.search__input-button {
+    border: 1px solid red;
+    display: flex;
+}
+

@@ -19,19 +19,19 @@
     </div>
     <div class="links">
       <ul class="ul__welcome">
-        <li class="li__welcome"><a href="{{route('usuario.login')}}">LOGIN</a></li>
         <li class="li__welcome"><a href="{{route('usuario.create')}}">INSCREVA-SE</a></li>
         <li class="li__welcome"><a href="{{route('usuario.cadastrados')}}">INSCRITOS</a></li>
       </ul>
     </div>
-    <div>
+    {{-- <div>
         @if(session('msg'))
             <p class="msg">{{ session('msg') }}</p>
         @endif
-    </div>
+    </div> --}}
   </header>
     <body>
         @yield('content')
+
         <footer>
         <p class="attribution">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.

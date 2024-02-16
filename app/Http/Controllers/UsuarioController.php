@@ -3,45 +3,32 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UsuarioStoreRequest;
 use App\Models\Usuario;
+use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
     public function index() {
-        try{
-            return view('welcome');
-        }
-        catch(\Throwable $e) {
-            return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
-        }
+        return view('welcome');
     }
 
     public function createUser() {
-        try{
-            return view('usuarios.create');
-        }
-        catch(\Throwable $e) {
-            return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
-        }
+        return view('usuarios.create');
     }
 
     public function cadastrados(){
-        try {
-            $usuarios = Usuario::all();
-            return view('usuarios.cadastrados', ['usuarios' => $usuarios]);
-        } catch (\Throwable $e) {
-            return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
-        }
+        return view('usuarios.cadastrados');
     }
+
     //Create
     public function store(UsuarioStoreRequest $request) {
 
-        try {
              // Cria um novo usuário
             $usuario = new Usuario;
             $usuario -> primeiroNome = $request -> primeiroNome;
             $usuario -> ultimoNome = $request -> ultimoNome;
             $usuario -> email = $request -> email;
             $usuario -> senha = $request -> senha;
+            $usuario -> usuario = $request -> usuario;
 
             // Recebe a Imagem de Perfil
             if ($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -53,10 +40,20 @@ class UsuarioController extends Controller
             }
             $usuario -> save();
             return redirect()->route('usuario.cadastrados')->with('msg','Usuário CADASTRADO com sucesso!');
-        } catch (\Throwable $e) {
-            return response()-> view('errors.500', ['message' => $e -> getMessage()],500);
+
+    }
+    //Resgatar dados Usuário
+    public function buscarUsuario(Request $request) {
+        $nomeUsuario = $request->input('nome_usuario');
+        $usuario = Usuario::where('usuario', $nomeUsuario)->first();
+        if ($usuario) {
+            return view('usuarios.cadastrados', ['usuario' => $usuario]);
+        } else {
+            return redirect()->back()->with('error', 'Usuário não encontrado');
         }
     }
+
+
     //Delete
     public function destroy($id) {
 

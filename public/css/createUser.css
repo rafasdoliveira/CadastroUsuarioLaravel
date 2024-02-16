@@ -23,7 +23,6 @@
    margin-top: 10px;
 }
 
-
 .cta__container {
     display: flex;
     justify-content: center;
@@ -39,6 +38,7 @@
     display: flex;
     flex-direction: column;
     margin: 25px;
+    height: 390px;
     background-color: #fff;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
@@ -48,8 +48,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
-    height: 300px;
+    margin-top: 10px;
+    height: 370px;
 }
 
 
