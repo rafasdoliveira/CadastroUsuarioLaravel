@@ -62,30 +62,92 @@ header {
 /* Main */
 
 .container {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     width: 800px;
     height: 400px;
+    background-color: #001d3d;
+    border-radius: 20px;
 }
 
 .search {
-    border: 1px solid red;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 800px;
+    justify-content: center;    width: 800px;
     height: 70px;
     margin-top: 10px;
 }
 
-.search__input-text {
-    border: 1px solid red;
-    display: flex;
+input {
+    width: 500px;
+    height: 45px;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+    background-color: #001d3d;
+    color: #fff;
 }
 
-.search__input-button {
-    border: 1px solid red;
+
+
+.search__input-text  {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.button {
+    border: 1px solid #ccc;
+    background-color: #62b6cb;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 45px;
+    border-radius: 10px;
+    margin: 5px;
+    border: none;
+}
+
+.profile {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: 100%;
+    margin-top: 10px;
+}
+
+.profile__img {
+    border: 1px solid orange;
+    display: flex;
+    width: 200px;
+    height: 305px;
+}
+
+.profile__dados {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 305px;
+}
+
+.header {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+}
+
+.usuarios {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.created {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    margin-left: 353px;
+}
