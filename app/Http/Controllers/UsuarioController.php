@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UsuarioStoreRequest;
+use App\Http\Requests\UsuarioUpdateRequest;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -67,7 +68,7 @@ class UsuarioController extends Controller
         return view('usuarios.edit', ['usuario' => $usuario]);
     }
 
-    public function update(UsuarioStoreRequest $request) {
+    public function update(UsuarioUpdateRequest $request) {
 
         $data = $request->all();
 

@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('style')
-<link rel="stylesheet" href="{{ asset('/css/global.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/createUser.css')}}">
 @endsection
 @section('title', 'Cadastro')
@@ -19,10 +18,7 @@
       <div class="cta__container">
         Teste grátis por 7 dias, após isso R$20/mês.
       </div>
-
-      {{-- Use a helper route para referenciar os actions e hrefs do seu projeto --}}
       <form action="{{ route('usuario.store') }}" method="POST" class="form" enctype="multipart/form-data">
-      {{-- <form action="/usuarios" method="POST" class="form"> --}}
       @csrf
       <div class="input__container">
         <input class="input-text" type="text" name="primeiroNome" id="primeiroNome" placeholder="Nome">
@@ -34,6 +30,18 @@
         <input class="input-button" type="submit" value="Solicitar teste gratuito">
       </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        @if ($errors->any())
+            var errorMessage = '';
+            @foreach ($errors->all() as $error)
+                errorMessage += '{{ $error }}\n';
+            @endforeach
+            alert(errorMessage);
+        @endif
+    });
+    </script>
   </div>
 </main>
 @endsection

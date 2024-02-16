@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('style')
-<link rel="stylesheet" href="{{ asset('/css/global.css')}}">
 <link rel="stylesheet" href="{{ asset('/css/createUser.css')}}">
 @endsection
 @section('title', 'Editando:' . $usuario->primeiroNome)
@@ -19,10 +18,7 @@
       <div class="cta__container">
         Preencha os dados com cuidado!
       </div>
-
-      {{-- Use a helper route para referenciar os actions e hrefs do seu projeto --}}
-      <form action="/usuarios/update/{{ $usuario->id }}" method="POST" class="form" enctype="multipart/form-data">
-      {{-- <form action="/usuarios" method="POST" class="form"> --}}
+      <form action="{{ route('usuario.store'), ['id'=>$usuario->id] }}" method="POST" class="form" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="input__container">
@@ -39,10 +35,7 @@
 </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Este trecho de código envolve o código jQuery para garantir que ele só seja executado quando o DOM (Document Object Model) estiver completamente carregado.
     $(document).ready(function() {
-        // Esta é uma diretiva condicional do Blade, o mecanismo de template do Laravel. Ela verifica se há erros de validação disponíveis na variável
-        // Se houver erros de validação, exibir um alerta
         @if ($errors->any())
             var errorMessage = '';
             @foreach ($errors->all() as $error)

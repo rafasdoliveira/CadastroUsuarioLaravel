@@ -11,5 +11,14 @@ class Usuario extends Model
 
     protected $guarded = [];
     protected $table = 'usuarios';
-
+    protected $fillable = [
+        'primeiroNome',
+        'ultimoNome',
+        'email',
+        'senha',
+        'usuario'
+    ];
+    protected $hidden = [
+        'senha',
+    ];
 }
