@@ -32,15 +32,7 @@ class UsuarioController extends Controller
             return response() -> view('error', ['message' => $e -> getMessage(), 500 ]);
         }
     }
-
-    public function login(){
-        try {
-            return view('usuarios.login');
-        } catch (\Throwable $e) {
-            return response() -> view('error', ['message' => $e -> getMessage()],500);
-        }
-    }
-
+    //Create
     public function store(UsuarioStoreRequest $request) {
 
         try {
@@ -51,8 +43,7 @@ class UsuarioController extends Controller
             $usuario -> email = $request -> email;
             $usuario -> senha = $request -> senha;
 
-            // Imagem
-
+            // Recebe a Imagem de Perfil
             if ($request->hasFile('image') && $request->file('image')->isValid()) {
                 $requestImage = $request->image;
                 $extension = $requestImage->extension();
@@ -61,20 +52,18 @@ class UsuarioController extends Controller
                 $usuario->image = $imageName;
             }
             $usuario -> save();
-            //Optar por usar a helper route nos redirecionamentos
-            //return redirect('usuarios/cadastrados')->with('dados formatados', $dadosFormatados->toArray());
-            return redirect()->route('usuario.login')->with('msg','Usuário CADASTRADO com sucesso!');
+            return redirect()->route('usuario.cadastrados')->with('msg','Usuário CADASTRADO com sucesso!');
         } catch (\Throwable $e) {
             return response()-> view('errors.500', ['message' => $e -> getMessage()],500);
         }
     }
-
+    //Delete
     public function destroy($id) {
 
         Usuario::FindorFail($id)->delete();
-        return redirect()->route('welcome')->with('msg','Usuário EXCLUÍDO com sucesso!');
+        return redirect()->route('usuario.cadastrados')->with('msg','Usuário EXCLUÍDO com sucesso!');
     }
-
+    //Update
     public function edit($id) {
 
         $usuario = Usuario::FindorFail($id);
@@ -95,8 +84,7 @@ class UsuarioController extends Controller
 
         Usuario::FindorFail($request->id)->update($data);
 
-        return redirect()->route('welcome')->with('msg','Usuário EDITADO com sucesso!');
-
+        return redirect()->route('usuario.cadastrados')->with('msg','Usuário EDITADO com sucesso!');
     }
 }
 

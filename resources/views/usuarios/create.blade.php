@@ -35,20 +35,5 @@
     </form>
   </div>
 </main>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    // Este trecho de código envolve o código jQuery para garantir que ele só seja executado quando o DOM (Document Object Model) estiver completamente carregado.
-    $(document).ready(function() {
-        // Esta é uma diretiva condicional do Blade, o mecanismo de template do Laravel. Ela verifica se há erros de validação disponíveis na variável
-        // Se houver erros de validação, exibir um alerta
-        @if ($errors->any())
-            var errorMessage = '';
-            @foreach ($errors->all() as $error)
-                errorMessage += '{{ $error }}\n';
-            @endforeach
-            alert(errorMessage);
-        @endif
-    });
-</script>
 @endsection
 

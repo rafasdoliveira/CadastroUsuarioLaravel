@@ -24,14 +24,14 @@
         <li class="li__welcome"><a href="{{route('usuario.cadastrados')}}">INSCRITOS</a></li>
       </ul>
     </div>
+    <div>
+        @if(session('msg'))
+            <p class="msg">{{ session('msg') }}</p>
+        @endif
+    </div>
   </header>
     <body>
         @yield('content')
-        <script>
-            @if(session('msg'))
-                alert('')
-            @endif
-        </script>
         <footer>
         <p class="attribution">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.

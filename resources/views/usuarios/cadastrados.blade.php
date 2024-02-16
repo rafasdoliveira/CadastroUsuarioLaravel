@@ -57,7 +57,7 @@
                 <a href="{{ route("usuario.edit",["id"=>$usuario->id]) }}">Editar</a>
 
                 {{-- Usar a Helper route, conforme acima --}}
-                <form action="/usuarios/{{$usuario->id}}" method="POST">
+                <form action="{{ route("usuario.delete", ["id"=>$usuario->id]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit">Excluir</button>
